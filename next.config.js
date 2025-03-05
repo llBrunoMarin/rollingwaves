@@ -4,7 +4,8 @@ const nextConfig = {
   basePath: '/rollingwaves',
   images: {
     unoptimized: true
-  }
+  },
+  trailingSlash: true
 }
 
 module.exports = nextConfig 
