@@ -582,7 +582,7 @@ export default function Home() {
                   <div className="space-y-4">
                     <p className="text-white/80">El Módulo Introductorio diagnostica las habilidades y competencias de los estudiantes al inicio del curso, orientando la planificación y acompañamientos pedagógicos. Evalúa comunicación, pensamiento lógico, resolución de problemas, trabajo en equipo y autonomía, mediante actividades interdisciplinarias registradas en el portafolio docente sin calificación numérica, solo con juicios conceptuales.</p>
                     <div className="mt-6">
-                      <h4 className="text-lg font-semibold mb-2">Propuesta para 2ndo EMS:</h4>
+                      <h4 className="text-lg font-semibold mb-2">Propuesta para 1ero EMS:</h4>
                       <p className="text-white/80">Refuerza el aprendizaje del alfabeto, nombres y datos personales en inglés. Los estudiantes organizan nombres según criterios específicos y presentan resultados en Canva. Investigan el nombre Guyunusa mediante juegos interactivos y crean una mascota escolar con IA, evaluando historia, geografía, lengua, características y debilidades, finalizando con una votación.</p>
                     </div>
                   </div>
