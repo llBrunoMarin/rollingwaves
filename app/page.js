@@ -6,6 +6,7 @@ import Link from 'next/link';
 export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [showModal, setShowModal] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -14,6 +15,10 @@ export default function Home() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
 
   return (
     <main className="min-h-screen bg-[#0077b6] text-white">
@@ -63,7 +68,10 @@ export default function Home() {
             </div>
 
             {/* Mobile Menu Button */}
-            <button className="md:hidden p-2 rounded-lg text-[#0077b6] hover:bg-[#0077b6]/10 transition-all duration-300">
+            <button 
+              onClick={toggleMobileMenu}
+              className="md:hidden p-2 rounded-lg text-[#0077b6] hover:bg-[#0077b6]/10 transition-all duration-300"
+            >
               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
               </svg>
@@ -501,13 +509,16 @@ export default function Home() {
       </footer>
 
       {/* Mobile Menu */}
-      <div className="md:hidden fixed inset-0 bg-white z-50 transform translate-x-full transition-transform duration-300">
+      <div className={`md:hidden fixed inset-0 bg-white z-50 transform transition-transform duration-300 ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
         <div className="flex flex-col h-full">
           <div className="flex justify-between items-center p-4 border-b">
             <Link href="/" className="text-3xl font-bold text-[#0077b6]">
               Rolling Waves
             </Link>
-            <button className="p-2 rounded-lg text-[#0077b6] hover:bg-[#0077b6]/10 transition-all duration-300">
+            <button 
+              onClick={toggleMobileMenu}
+              className="p-2 rounded-lg text-[#0077b6] hover:bg-[#0077b6]/10 transition-all duration-300"
+            >
               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
               </svg>
@@ -515,16 +526,32 @@ export default function Home() {
           </div>
           <div className="flex-1 overflow-y-auto p-4">
             <nav className="space-y-4">
-              <Link href="/" className="block px-4 py-2 text-[#0077b6] font-bold hover:bg-[#0077b6]/10 rounded-lg">
+              <Link 
+                href="/" 
+                className="block px-4 py-2 text-[#0077b6] font-bold hover:bg-[#0077b6]/10 rounded-lg"
+                onClick={toggleMobileMenu}
+              >
                 Inicio
               </Link>
-              <Link href="/niveles" className="block px-4 py-2 text-[#0077b6] font-bold hover:bg-[#0077b6]/10 rounded-lg">
+              <Link 
+                href="/niveles" 
+                className="block px-4 py-2 text-[#0077b6] font-bold hover:bg-[#0077b6]/10 rounded-lg"
+                onClick={toggleMobileMenu}
+              >
                 Niveles
               </Link>
-              <Link href="/recursos" className="block px-4 py-2 text-[#0077b6] font-bold hover:bg-[#0077b6]/10 rounded-lg">
+              <Link 
+                href="/recursos" 
+                className="block px-4 py-2 text-[#0077b6] font-bold hover:bg-[#0077b6]/10 rounded-lg"
+                onClick={toggleMobileMenu}
+              >
                 Recursos
               </Link>
-              <Link href="/sobre-mi" className="block px-4 py-2 text-[#0077b6] font-bold hover:bg-[#0077b6]/10 rounded-lg">
+              <Link 
+                href="/sobre-mi" 
+                className="block px-4 py-2 text-[#0077b6] font-bold hover:bg-[#0077b6]/10 rounded-lg"
+                onClick={toggleMobileMenu}
+              >
                 Sobre mi
               </Link>
             </nav>
