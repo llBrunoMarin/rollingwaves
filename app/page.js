@@ -251,21 +251,26 @@ export default function Home() {
 
       {/* Modal */}
       {showModal && (
-        <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
-          <div className="bg-[#0077b6] rounded-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+        <div 
+          className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50"
+          onClick={() => setShowModal(false)}
+        >
+          <div 
+            className="bg-[#0077b6] rounded-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto relative"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="sticky top-0 bg-[#0077b6] p-6 border-b border-white/10 flex justify-between items-center z-10">
+              <h3 className="text-2xl font-bold">Módulo Introductorio</h3>
+              <button 
+                onClick={() => setShowModal(false)}
+                className="text-white hover:text-white/80 transition-colors"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
             <div className="p-6">
-              <div className="flex justify-between items-center mb-6">
-                <h3 className="text-2xl font-bold">Módulo Introductorio</h3>
-                <button 
-                  onClick={() => setShowModal(false)}
-                  className="text-white hover:text-white/80 transition-colors"
-                >
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                  </svg>
-                </button>
-              </div>
-              
               <div className="space-y-6">
                 <h4 className="text-xl font-semibold mb-4">Cómo y cuándo serás evaluado/a</h4>
                 
