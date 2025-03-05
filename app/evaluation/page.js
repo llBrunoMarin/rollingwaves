@@ -285,7 +285,7 @@ const sections = [
       {
         id: 'uruguay-1',
         question: "What's the name of this place?",
-        imageUrl: '/images/describe.jpg',
+        imageUrl: process.env.NODE_ENV === 'production' ? '/rollingwaves/images/describe.jpg' : '/images/describe.jpg',
         options: [
           { text: "That's Parque Rodo", value: 'A' },
           { text: "That's Parque Batlle", value: 'B' },
@@ -296,7 +296,7 @@ const sections = [
       {
         id: 'uruguay-2',
         question: 'How many cars are there?',
-        imageUrl: '/images/describe.jpg',
+        imageUrl: process.env.NODE_ENV === 'production' ? '/rollingwaves/images/describe.jpg' : '/images/describe.jpg',
         options: [
           { text: 'There are 6 cars', value: 'A' },
           { text: 'There is 6 car', value: 'B' },
@@ -307,7 +307,7 @@ const sections = [
       {
         id: 'uruguay-3',
         question: 'What time of the day is it?',
-        imageUrl: '/images/describe.jpg',
+        imageUrl: process.env.NODE_ENV === 'production' ? '/rollingwaves/images/describe.jpg' : '/images/describe.jpg',
         options: [
           { text: 'Morning', value: 'A' },
           { text: 'Evening', value: 'B' },
@@ -326,7 +326,7 @@ const sections = [
       {
         id: 'listening-1',
         question: "Where's the boy with the blue jacket going?",
-        audioUrl: '/audio/listening-1.mp3',
+        audioUrl: process.env.NODE_ENV === 'production' ? '/rollingwaves/audio/listening-1.mp3' : '/audio/listening-1.mp3',
         options: [
           { text: 'To the library', value: 'A' },
           { text: 'To the park', value: 'B' },
@@ -338,7 +338,7 @@ const sections = [
       {
         id: 'listening-2',
         question: 'What does the woman want to buy?',
-        audioUrl: '/audio/listening-2.mp3',
+        audioUrl: process.env.NODE_ENV === 'production' ? '/rollingwaves/audio/listening-2.mp3' : '/audio/listening-2.mp3',
         options: [
           { text: 'A pair of shoes', value: 'A' },
           { text: 'A jacket', value: 'B' },

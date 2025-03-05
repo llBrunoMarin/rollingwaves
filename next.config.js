@@ -10,6 +10,19 @@ const nextConfig = {
   webpack: (config) => {
     config.resolve.fallback = { fs: false };
     return config;
+  },
+  // Agregar configuración para archivos estáticos
+  async rewrites() {
+    return [
+      {
+        source: '/images/:path*',
+        destination: '/images/:path*',
+      },
+      {
+        source: '/audio/:path*',
+        destination: '/audio/:path*',
+      },
+    ];
   }
 }
 
