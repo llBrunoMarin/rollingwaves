@@ -8,7 +8,17 @@ import Navbar from '../components/Navbar';
 
 // Importar el componente de evaluación dinámicamente
 const Evaluation = dynamic(() => import('../evaluation/page'), {
-  ssr: false
+  ssr: false,
+  loading: () => (
+    <div className="flex flex-col items-center justify-center min-h-[60vh]">
+      <div className="relative w-24 h-24">
+        {/* Círculos de salpicadura */}
+        <div className="absolute inset-0 rounded-full bg-white/20 animate-splash-1"></div>
+        <div className="absolute inset-0 rounded-full bg-white/20 animate-splash-2"></div>
+        <div className="absolute inset-0 rounded-full bg-white/20 animate-splash-3"></div>
+      </div>
+    </div>
+  )
 });
 
 export default function Niveles() {
@@ -262,5 +272,9 @@ function TodosLosNiveles() {
 
 // Componente para la evaluación de nivel
 function EvaluacionNivel() {
-  return <Evaluation />;
+  return (
+    <div className="container mx-auto px-4 pt-16 pb-16">
+      <Evaluation />
+    </div>
+  );
 } 

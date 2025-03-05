@@ -22,7 +22,7 @@ export default function SobreMi() {
       <Navbar />
       
       {/* Wave Divider */}
-      <div className="relative">
+      <div className="relative w-full h-48 overflow-hidden bg-white">
         <svg
           className="absolute bottom-0 w-full h-48"
           viewBox="0 0 1440 320"
@@ -42,7 +42,7 @@ export default function SobreMi() {
       </div>
 
       {/* About Section */}
-      <section className="py-20">
+      <section className="py-16">
         <div className="container mx-auto max-w-4xl">
           {/* Sobre Bruno Marin Section */}
           <div className="bg-white/10 p-8 rounded-xl backdrop-blur-sm mb-8">
@@ -209,6 +209,33 @@ export default function SobreMi() {
           <p>&copy; 2025 Rolling Waves - Bruno Marin - Liceo 65 ° Guyunusa. Todos los derechos reservados.</p>
         </div>
       </footer>
+
+      <style jsx global>{`
+        @keyframes splash {
+          0% {
+            transform: scale(1);
+            opacity: 0.5;
+          }
+          100% {
+            transform: scale(2);
+            opacity: 0;
+          }
+        }
+
+        .animate-splash-1 {
+          animation: splash 1.5s ease-out infinite;
+        }
+
+        .animate-splash-2 {
+          animation: splash 1.5s ease-out infinite;
+          animation-delay: 0.5s;
+        }
+
+        .animate-splash-3 {
+          animation: splash 1.5s ease-out infinite;
+          animation-delay: 1s;
+        }
+      `}</style>
     </main>
   );
 }
