@@ -173,33 +173,64 @@ function TodosLosNiveles() {
         {niveles.map((nivel) => (
           <div 
             key={nivel.nivel} 
-            onClick={() => nivel.link ? window.location.href = nivel.link : setSelectedNivel(nivel)}
+            onClick={() => nivel.link ? null : setSelectedNivel(nivel)}
             className={`relative group overflow-hidden rounded-xl bg-gradient-to-br shadow-xl transform hover:scale-105 transition-all duration-300 cursor-pointer`}
           >
-            {/* Fondo con gradiente */}
-            <div className={`absolute inset-0 bg-gradient-to-br ${nivel.color} opacity-95`}></div>
-            
-            {/* Contenido */}
-            <div className="relative p-6 h-full">
-              {/* Número de nivel */}
-              <div className="absolute top-4 right-4 w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
-                <span className="text-2xl font-bold text-white">{nivel.nivel === "Quiz" ? "?" : nivel.nivel.split(' ')[1]}</span>
-              </div>
+            {nivel.link ? (
+              <Link href={nivel.link} className="block">
+                {/* Fondo con gradiente */}
+                <div className={`absolute inset-0 bg-gradient-to-br ${nivel.color} opacity-95`}></div>
+                
+                {/* Contenido */}
+                <div className="relative p-6 h-full">
+                  {/* Número de nivel */}
+                  <div className="absolute top-4 right-4 w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
+                    <span className="text-2xl font-bold text-white">{nivel.nivel === "Quiz" ? "?" : nivel.nivel.split(' ')[1]}</span>
+                  </div>
 
-              {/* Título */}
-              <h3 className="text-xl font-bold text-white mb-4 pr-12">{nivel.titulo}</h3>
+                  {/* Título */}
+                  <h3 className="text-xl font-bold text-white mb-4 pr-12">{nivel.titulo}</h3>
 
-              {/* Descripción */}
-              <p className="text-white/90 text-lg mb-4 font-medium">{nivel.descripcion}</p>
+                  {/* Descripción */}
+                  <p className="text-white/90 text-lg mb-4 font-medium">{nivel.descripcion}</p>
 
-              {/* Analogía */}
-              <div className="mt-4 pt-4 border-t border-white/20">
-                <p className="text-white/80 text-sm leading-relaxed">{nivel.analogia}</p>
-              </div>
+                  {/* Analogía */}
+                  <div className="mt-4 pt-4 border-t border-white/20">
+                    <p className="text-white/80 text-sm leading-relaxed">{nivel.analogia}</p>
+                  </div>
 
-              {/* Efecto hover */}
-              <div className="absolute inset-0 bg-gradient-to-br from-white/0 to-white/0 group-hover:from-white/10 group-hover:to-white/5 transition-all duration-300"></div>
-            </div>
+                  {/* Efecto hover */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-white/0 to-white/0 group-hover:from-white/10 group-hover:to-white/5 transition-all duration-300"></div>
+                </div>
+              </Link>
+            ) : (
+              <>
+                {/* Fondo con gradiente */}
+                <div className={`absolute inset-0 bg-gradient-to-br ${nivel.color} opacity-95`}></div>
+                
+                {/* Contenido */}
+                <div className="relative p-6 h-full">
+                  {/* Número de nivel */}
+                  <div className="absolute top-4 right-4 w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
+                    <span className="text-2xl font-bold text-white">{nivel.nivel === "Quiz" ? "?" : nivel.nivel.split(' ')[1]}</span>
+                  </div>
+
+                  {/* Título */}
+                  <h3 className="text-xl font-bold text-white mb-4 pr-12">{nivel.titulo}</h3>
+
+                  {/* Descripción */}
+                  <p className="text-white/90 text-lg mb-4 font-medium">{nivel.descripcion}</p>
+
+                  {/* Analogía */}
+                  <div className="mt-4 pt-4 border-t border-white/20">
+                    <p className="text-white/80 text-sm leading-relaxed">{nivel.analogia}</p>
+                  </div>
+
+                  {/* Efecto hover */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-white/0 to-white/0 group-hover:from-white/10 group-hover:to-white/5 transition-all duration-300"></div>
+                </div>
+              </>
+            )}
           </div>
         ))}
       </div>
