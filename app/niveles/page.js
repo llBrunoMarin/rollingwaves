@@ -60,8 +60,7 @@ export default function Niveles() {
       {/* Content Section */}
       <div className="min-h-screen flex flex-col">
         <div className="flex-1 container mx-auto px-4 pt-16 pb-16">
-          {pathname === '/niveles' && <TodosLosNiveles />}
-          {pathname === '/niveles/evaluacion' && <EvaluacionNivel />}
+          <TodosLosNiveles />
         </div>
       </div>
 
@@ -173,11 +172,11 @@ function TodosLosNiveles() {
         {niveles.map((nivel) => (
           <div 
             key={nivel.nivel} 
-            onClick={() => nivel.link ? null : setSelectedNivel(nivel)}
+            onClick={() => !nivel.link && setSelectedNivel(nivel)}
             className={`relative group overflow-hidden rounded-xl bg-gradient-to-br shadow-xl transform hover:scale-105 transition-all duration-300 cursor-pointer`}
           >
             {nivel.link ? (
-              <Link href={nivel.link} className="block">
+              <Link href={nivel.link} className="block h-full">
                 {/* Fondo con gradiente */}
                 <div className={`absolute inset-0 bg-gradient-to-br ${nivel.color} opacity-95`}></div>
                 
@@ -235,77 +234,63 @@ function TodosLosNiveles() {
         ))}
       </div>
 
+      {/* Vista expandida */}
+      {selectedNivel && (
+        <div className="fixed inset-0 bg-[#0077b6]/95 flex items-center justify-center p-4 z-50">
+          <div className="container mx-auto max-w-4xl bg-white/10 backdrop-blur-sm rounded-xl p-8">
+            <div className="flex justify-between items-start mb-6">
+              <h2 className="text-2xl font-bold text-white">{selectedNivel.titulo}</h2>
+              <button
+                onClick={() => setSelectedNivel(null)}
+                className="text-white/80 hover:text-white transition-colors"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+            
+            <div className="space-y-6">
+              <div>
+                <h3 className="text-xl font-semibold text-white mb-2">Descripción</h3>
+                <p className="text-white/90">{selectedNivel.descripcion}</p>
+              </div>
+              
+              <div>
+                <h3 className="text-xl font-semibold text-white mb-2">Analogía</h3>
+                <p className="text-white/90">{selectedNivel.analogia}</p>
+              </div>
+              
+              <div>
+                <h3 className="text-xl font-semibold text-white mb-2">Tips para este nivel</h3>
+                <ul className="list-disc list-inside space-y-2 text-white/90">
+                  {selectedNivel.tips.map((tip, index) => (
+                    <li key={index}>{tip}</li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Aclaración */}
       <div className="w-full bg-[#0077b6]/90 py-4 mt-8">
         <div className="container mx-auto px-4">
           <p className="text-white/70 text-xs italic text-center">Los niveles obtenidos en esta página web no están ligados a la calificación de ningun alumno/a y son meramente representativos a las respuestas de un formulario de corrección automática</p>
         </div>
       </div>
-
-      {/* Vista expandida */}
-      {selectedNivel && (
-        <div className="fixed inset-0 bg-[#0077b6]/95 flex items-center justify-center p-4 z-50">
-          <div className="container mx-auto flex flex-col lg:flex-row gap-8">
-            {/* Tarjeta expandida */}
-            <div className={`lg:w-1/2 transform transition-all duration-500 ${
-              selectedNivel ? 'translate-x-0 opacity-100' : '-translate-x-full opacity-0'
-            }`}>
-              <div className={`relative overflow-hidden rounded-xl bg-gradient-to-br shadow-xl ${selectedNivel.color}`}>
-                <div className="absolute inset-0 bg-gradient-to-br opacity-95"></div>
-                <div className="relative p-8">
-                  <div className="absolute top-6 right-6 w-16 h-16 bg-white/20 rounded-full flex items-center justify-center">
-                    <span className="text-3xl font-bold text-white">{selectedNivel.nivel.split(' ')[1]}</span>
-                  </div>
-                  <h3 className="text-2xl font-bold text-white mb-6 pr-16">{selectedNivel.titulo}</h3>
-                  <p className="text-white/90 text-xl mb-6 font-medium">{selectedNivel.descripcion}</p>
-                  <div className="mt-6 pt-6 border-t border-white/20">
-                    <p className="text-white/80 text-base leading-relaxed">{selectedNivel.analogia}</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Tips */}
-            <div className={`lg:w-1/2 transform transition-all duration-500 delay-200 ${
-              selectedNivel ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0'
-            }`}>
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-8">
-                <h3 className="text-2xl font-bold text-white mb-6">Tips para mejorar</h3>
-                <ul className="space-y-4">
-                  {selectedNivel.tips.map((tip, index) => (
-                    <li 
-                      key={index}
-                      className="flex items-start space-x-3 text-white/90"
-                    >
-                      <span className="text-[#00a8e8] text-xl">•</span>
-                      <span className="text-lg">{tip}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-
-            {/* Botón de cerrar */}
-            <button
-              onClick={() => setSelectedNivel(null)}
-              className="absolute top-4 right-4 text-white hover:text-white/80 transition-colors"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
-          </div>
-        </div>
-      )}
     </div>
   );
 }
 
-// Componente para la evaluación de nivel
+// Componente para mostrar la evaluación
 function EvaluacionNivel() {
   return (
-    <div className="container mx-auto px-4 pt-16 pb-16">
-      <Evaluation />
+    <div className="container mx-auto px-4 py-8">
+      <div className="bg-white/10 backdrop-blur-sm rounded-xl p-8">
+        <Evaluation />
+      </div>
     </div>
   );
 } 

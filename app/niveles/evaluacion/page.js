@@ -1,7 +1,5 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import Link from 'next/link';
 import dynamic from 'next/dynamic';
 import Navbar from '../../components/Navbar';
 
@@ -20,25 +18,7 @@ const Evaluation = dynamic(() => import('../../evaluation/page'), {
   )
 });
 
-export default function Evaluacion() {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 0);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 2000);
-    return () => clearTimeout(timer);
-  }, []);
-
+export default function EvaluacionNivel() {
   return (
     <main className="min-h-screen bg-[#0077b6] text-white">
       <Navbar />
@@ -64,19 +44,10 @@ export default function Evaluacion() {
       </div>
 
       {/* Content Section */}
-      <div className="container mx-auto px-4 pt-16 pb-16">
-        {isLoading ? (
-          <div className="flex flex-col items-center justify-center min-h-[60vh]">
-            <div className="relative w-24 h-24">
-              {/* Círculos de salpicadura */}
-              <div className="absolute inset-0 rounded-full bg-white/20 animate-splash-1"></div>
-              <div className="absolute inset-0 rounded-full bg-white/20 animate-splash-2"></div>
-              <div className="absolute inset-0 rounded-full bg-white/20 animate-splash-3"></div>
-            </div>
-          </div>
-        ) : (
+      <div className="min-h-screen flex flex-col">
+        <div className="flex-1 container mx-auto px-4 pt-16 pb-16">
           <Evaluation />
-        )}
+        </div>
       </div>
 
       {/* Footer */}

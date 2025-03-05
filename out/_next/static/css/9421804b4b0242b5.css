@@ -1,1 +1,0 @@
-@keyframes water-flow{0%{background-position:0 50%}50%{background-position:100% 50%}to{background-position:0 50%}}@keyframes wave{0%{transform:translateX(0)}to{transform:translateX(-50%)}}.animate-water-flow{animation:water-flow 3s ease infinite;background-size:200% 100%}.animate-wave{animation:wave 2s linear infinite;background-size:200% 100%}

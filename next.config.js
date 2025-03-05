@@ -1,11 +1,16 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'export',
-  basePath: '/rollingwaves',
+  basePath: process.env.NODE_ENV === 'production' ? '/rollingwaves' : '',
   images: {
     unoptimized: true
   },
-  trailingSlash: true
+  trailingSlash: true,
+  assetPrefix: process.env.NODE_ENV === 'production' ? '/rollingwaves/' : '',
+  webpack: (config) => {
+    config.resolve.fallback = { fs: false };
+    return config;
+  }
 }
 
 module.exports = nextConfig 
