@@ -36,17 +36,19 @@ export default function Home() {
       {/* Wave Divider */}
       <div className="relative w-full h-48 overflow-hidden bg-white">
         <svg
-          className="absolute bottom-0 w-full h-48"
+          className="absolute bottom-0 w-full h-48 animate-wave"
           viewBox="0 0 1440 320"
           preserveAspectRatio="none"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
+            className="animate-wave-path"
             d="M0,160L48,170.7C96,181,192,203,288,197.3C384,192,480,160,576,165.3C672,171,768,213,864,224C960,235,1056,213,1152,197.3C1248,181,1344,171,1392,165.3L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
             fill="#00a8e8"
           />
           <path
+            className="animate-wave-path-delayed"
             d="M0,192L48,197.3C96,203,192,213,288,208C384,203,480,181,576,181.3C672,181,768,203,864,208C960,213,1056,203,1152,197.3C1248,192,1344,192,1392,192L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
             fill="#0077b6"
           />
@@ -63,7 +65,7 @@ export default function Home() {
             Aprender inglés es abrir puertas a tu futuro. El esfuerzo de hoy será tu éxito de mañana.
           </p>
           <p className="text-2xl md:text-4xl font-bold text-white/90">
-            ¡Comprométete contigo mismo!
+            ¡Comprométete contigo mismo/a!
           </p>
         </div>
       </section>
@@ -74,22 +76,21 @@ export default function Home() {
           <h2 className="text-3xl font-bold text-center mb-12">Academic Calendar 1st Year EMS</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* March */}
-            <div className="bg-white/10 p-6 rounded-lg backdrop-blur-sm">
-              <h3 className="text-2xl font-bold mb-4">March</h3>
-              <div className="space-y-4">
-                <div 
-                  className="bg-white/5 p-4 rounded-lg cursor-pointer hover:bg-white/10 transition-all duration-300"
-                  onClick={() => openModal('introductory')}
-                >
-                  <h4 className="text-lg font-semibold mb-2">Introductory Module</h4>
-                  <p className="text-white/80">Course start and level assessment</p>
+            <div className="bg-white/10 p-4 rounded-lg backdrop-blur-sm">
+              <h3 className="text-xl font-bold mb-4">March</h3>
+              <div className="flex flex-col space-y-4">
+                {/* Cards for March */}
+                <div className="bg-white/5 p-4 rounded-lg cursor-pointer hover:bg-white/10 transition-colors" onClick={() => openModal('introductory')}>
+                  <h3 className="text-lg font-semibold mb-2">Módulo Introductorio</h3>
+                  <p className="text-white/70">Evaluación diagnóstica inicial</p>
                 </div>
-                <div 
-                  className="bg-white/5 p-4 rounded-lg cursor-pointer hover:bg-white/10 transition-all duration-300"
-                  onClick={() => openModal('rubrics')}
-                >
-                  <h4 className="text-lg font-semibold mb-2">Rúbricas de evaluación diagnóstica</h4>
-                  <p className="text-white/80">Evaluación detallada de habilidades</p>
+                <div className="bg-white/5 p-4 rounded-lg cursor-pointer hover:bg-white/10 transition-colors" onClick={() => openModal('rubricas')}>
+                  <h3 className="text-lg font-semibold mb-2">Rúbricas de Evaluación</h3>
+                  <p className="text-white/70">Criterios de evaluación diagnóstica</p>
+                </div>
+                <div className="bg-white/5 p-4 rounded-lg cursor-pointer hover:bg-white/10 transition-colors" onClick={() => openModal('proyecto')}>
+                  <h3 className="text-lg font-semibold mb-2">Proyecto Módulo Introductorio</h3>
+                  <p className="text-white/70">Propuesta para 1ero EMS</p>
                 </div>
               </div>
             </div>
@@ -172,22 +173,21 @@ export default function Home() {
           <h2 className="text-3xl font-bold text-center mb-12">Academic Calendar 2nd Year EMS</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* March */}
-            <div className="bg-white/10 p-6 rounded-lg backdrop-blur-sm">
-              <h3 className="text-2xl font-bold mb-4">March</h3>
-              <div className="space-y-4">
-                <div 
-                  className="bg-white/5 p-4 rounded-lg cursor-pointer hover:bg-white/10 transition-all duration-300"
-                  onClick={() => openModal('introductory')}
-                >
-                  <h4 className="text-lg font-semibold mb-2">Introductory Module</h4>
-                  <p className="text-white/80">Course start and level assessment</p>
+            <div className="bg-white/10 p-4 rounded-lg backdrop-blur-sm">
+              <h3 className="text-xl font-bold mb-4">March</h3>
+              <div className="flex flex-col space-y-4">
+                {/* Cards for March */}
+                <div className="bg-white/5 p-4 rounded-lg cursor-pointer hover:bg-white/10 transition-colors" onClick={() => openModal('introductory')}>
+                  <h3 className="text-lg font-semibold mb-2">Módulo Introductorio</h3>
+                  <p className="text-white/70">Evaluación diagnóstica inicial</p>
                 </div>
-                <div 
-                  className="bg-white/5 p-4 rounded-lg cursor-pointer hover:bg-white/10 transition-all duration-300"
-                  onClick={() => openModal('rubrics')}
-                >
-                  <h4 className="text-lg font-semibold mb-2">Rúbricas de evaluación diagnóstica</h4>
-                  <p className="text-white/80">Evaluación detallada de habilidades</p>
+                <div className="bg-white/5 p-4 rounded-lg cursor-pointer hover:bg-white/10 transition-colors" onClick={() => openModal('rubricas')}>
+                  <h3 className="text-lg font-semibold mb-2">Rúbricas de Evaluación</h3>
+                  <p className="text-white/70">Criterios de evaluación diagnóstica</p>
+                </div>
+                <div className="bg-white/5 p-4 rounded-lg cursor-pointer hover:bg-white/10 transition-colors" onClick={() => openModal('proyecto')}>
+                  <h3 className="text-lg font-semibold mb-2">Proyecto Módulo Introductorio</h3>
+                  <p className="text-white/70">Propuesta para 2ndo EMS</p>
                 </div>
               </div>
             </div>
@@ -256,9 +256,15 @@ export default function Home() {
             {/* Header */}
             <div className="sticky top-0 bg-gradient-to-r from-[#0077b6] to-[#005b8c] p-6 border-b border-white/10 flex justify-between items-center z-10 rounded-t-2xl">
               <div className="flex items-center space-x-4">
-                <span className="text-4xl">{activeModal === 'introductory' ? '🎓' : '📊'}</span>
+                <span className="text-4xl">
+                  {activeModal === 'introductory' ? '🎓' : 
+                   activeModal === 'rubricas' ? '📊' : 
+                   activeModal === 'proyecto' ? '🎯' : '📝'}
+                </span>
                 <h3 className="text-2xl font-bold">
-                  {activeModal === 'introductory' ? 'Introductory Module' : 'Rúbricas de Evaluación Diagnóstica'}
+                  {activeModal === 'introductory' ? 'Introductory Module' : 
+                   activeModal === 'rubricas' ? 'Rúbricas de Evaluación Diagnóstica' :
+                   activeModal === 'proyecto' ? 'Proyecto Módulo Introductorio' : 'Modal'}
                 </h3>
               </div>
               <button 
@@ -538,161 +544,50 @@ export default function Home() {
                     </div>
                   </div>
                 </>
-              ) : (
-                <div className="space-y-8">
-                  {/* Evaluation Rubrics Section */}
-                  <div className="bg-white/5 rounded-xl overflow-hidden backdrop-blur-sm">
-                    <div className="p-6 bg-white/10">
-                      <h4 className="text-xl font-semibold flex items-center">
-                        <span className="mr-3">📊</span>
-                        Rúbricas de Evaluación Diagnóstica
-                      </h4>
-                    </div>
-                    <div className="p-6 space-y-8">
-                      {/* English Usage Rubric */}
-                      <div className="bg-white/5 p-6 rounded-lg">
-                        <h5 className="text-lg font-semibold mb-4">1. Uso del Inglés en Expresión Oral y Escrita</h5>
-                        <div className="space-y-3">
-                          {[
-                            { level: 6, desc: "Expresión clara, fluida y precisa en inglés. Usa una variedad de vocabulario y estructuras con muy pocos o ningún error." },
-                            { level: 5, desc: "Buena expresión en inglés con algunos errores menores que no afectan la comprensión. Uso adecuado de vocabulario y gramática." },
-                            { level: 4, desc: "Expresión comprensible pero con errores frecuentes en gramática o vocabulario. Se necesita algo de corrección para la claridad." },
-                            { level: 3, desc: "Expresión limitada con errores que afectan la comprensión. Necesita apoyo para mejorar la claridad y precisión." },
-                            { level: 2, desc: "Dificultades significativas en la expresión. Uso muy limitado del inglés, con errores graves en gramática y vocabulario." },
-                            { level: 1, desc: "No logra expresarse en inglés de manera comprensible. Usa frases muy básicas o en otro idioma." }
-                          ].map((item) => (
-                            <div key={item.level} className="flex items-start space-x-4">
-                              <span className="font-bold text-lg">{item.level}</span>
-                              <p className="text-white/90">{item.desc}</p>
-                            </div>
-                          ))}
+              ) : activeModal === 'rubricas' ? (
+                <div className="bg-white/10 p-6 rounded-lg max-w-4xl mx-auto">
+                  <h3 className="text-xl font-semibold mb-4">Rúbricas de Evaluación Diagnóstica</h3>
+                  <div className="space-y-4">
+                    <p className="text-white/80">Evaluación detallada de habilidades (art. 47, 48, 49, 50, 52 REDE 2024)</p>
+                    <div className="mt-6">
+                      <h4 className="text-lg font-semibold mb-2">Criterios de Evaluación</h4>
+                      <div className="space-y-4">
+                        <div className="bg-white/5 p-4 rounded-lg">
+                          <h5 className="font-semibold mb-2">Expresión Oral</h5>
+                          <p className="text-white/80">Evaluación de la capacidad de comunicación oral en inglés</p>
                         </div>
-                      </div>
-
-                      {/* Alphabet Knowledge Rubric */}
-                      <div className="bg-white/5 p-6 rounded-lg">
-                        <h5 className="text-lg font-semibold mb-4">2. Conocimiento y Uso del Alfabeto en Inglés</h5>
-                        <div className="space-y-3">
-                          {[
-                            { level: 6, desc: "Pronuncia y deletrea correctamente todas las letras del alfabeto en inglés sin errores." },
-                            { level: 5, desc: "Pronuncia y deletrea casi todas las letras correctamente, con solo algunos errores menores." },
-                            { level: 4, desc: "Comete varios errores en la pronunciación o deletreo, pero logra ser comprensible." },
-                            { level: 3, desc: "Tiene dificultades notables para pronunciar y deletrear correctamente más de la mitad de las letras." },
-                            { level: 2, desc: "Presenta un conocimiento muy limitado del alfabeto en inglés y apenas logra deletrear palabras." },
-                            { level: 1, desc: "No conoce ni pronuncia correctamente las letras del alfabeto en inglés." }
-                          ].map((item) => (
-                            <div key={item.level} className="flex items-start space-x-4">
-                              <span className="font-bold text-lg">{item.level}</span>
-                              <p className="text-white/90">{item.desc}</p>
-                            </div>
-                          ))}
+                        <div className="bg-white/5 p-4 rounded-lg">
+                          <h5 className="font-semibold mb-2">Expresión Escrita</h5>
+                          <p className="text-white/80">Evaluación de la capacidad de escritura en inglés</p>
                         </div>
-                      </div>
-
-                      {/* Numbers Recognition Rubric */}
-                      <div className="bg-white/5 p-6 rounded-lg">
-                        <h5 className="text-lg font-semibold mb-4">3. Reconocimiento y Uso de los Números del 1 al 30</h5>
-                        <div className="space-y-3">
-                          {[
-                            { level: 6, desc: "Puede contar, identificar y escribir correctamente los números del 1 al 30 sin errores." },
-                            { level: 5, desc: "Puede contar y escribir la mayoría de los números del 1 al 30 con pequeños errores ocasionales." },
-                            { level: 4, desc: "Reconoce y usa la mayoría de los números del 1 al 30, pero comete errores frecuentes." },
-                            { level: 3, desc: "Dificultades para contar o escribir correctamente más de la mitad de los números." },
-                            { level: 2, desc: "Solo reconoce y usa algunos números correctamente, con errores constantes." },
-                            { level: 1, desc: "No logra reconocer ni escribir correctamente los números del 1 al 30." }
-                          ].map((item) => (
-                            <div key={item.level} className="flex items-start space-x-4">
-                              <span className="font-bold text-lg">{item.level}</span>
-                              <p className="text-white/90">{item.desc}</p>
-                            </div>
-                          ))}
+                        <div className="bg-white/5 p-4 rounded-lg">
+                          <h5 className="font-semibold mb-2">Conocimiento del Alfabeto</h5>
+                          <p className="text-white/80">Evaluación del reconocimiento y uso del alfabeto inglés</p>
                         </div>
-                      </div>
-
-                      {/* Days of the Week Rubric */}
-                      <div className="bg-white/5 p-6 rounded-lg">
-                        <h5 className="text-lg font-semibold mb-4">4. Identificación y Uso de los Días de la Semana</h5>
-                        <div className="space-y-3">
-                          {[
-                            { level: 6, desc: "Nombra, escribe y usa correctamente los 7 días de la semana en inglés sin errores." },
-                            { level: 5, desc: "Puede nombrar y escribir casi todos los días de la semana con pocos errores menores." },
-                            { level: 4, desc: "Reconoce y usa los días de la semana, pero con varios errores en escritura o pronunciación." },
-                            { level: 3, desc: "Dificultades para recordar o escribir correctamente más de la mitad de los días de la semana." },
-                            { level: 2, desc: "Solo reconoce algunos días de la semana, con errores constantes en pronunciación y escritura." },
-                            { level: 1, desc: "No logra identificar ni escribir correctamente los días de la semana." }
-                          ].map((item) => (
-                            <div key={item.level} className="flex items-start space-x-4">
-                              <span className="font-bold text-lg">{item.level}</span>
-                              <p className="text-white/90">{item.desc}</p>
-                            </div>
-                          ))}
+                        <div className="bg-white/5 p-4 rounded-lg">
+                          <h5 className="font-semibold mb-2">Números 1-30</h5>
+                          <p className="text-white/80">Evaluación del reconocimiento y uso de números en inglés</p>
                         </div>
-                      </div>
-
-                      {/* Final Product Evaluation */}
-                      <div className="bg-white/5 p-6 rounded-lg">
-                        <h5 className="text-lg font-semibold mb-4">5. Evaluación del Producto Final</h5>
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                          {[
-                            { title: "Creatividad y Presentación", levels: [
-                              "Información bien estructurada, innovadora y visualmente atractiva.",
-                              "Presentación clara con elementos creativos, pero podría mejorar en estructura.",
-                              "Presentación básica con algo de organización pero poco impacto visual.",
-                              "Presentación desordenada y con poco esfuerzo visual.",
-                              "Producto incompleto o con poca dedicación.",
-                              "No hay producto final o está inentendible."
-                            ]},
-                            { title: "Precisión en Datos", levels: [
-                              "Todos los datos son correctos y bien organizados.",
-                              "Pequeños errores en los datos sin afectar la comprensión.",
-                              "Varios errores en los datos, pero comprensible.",
-                              "Errores significativos en la información.",
-                              "Datos incorrectos o faltantes.",
-                              "Información inexistente o errónea."
-                            ]},
-                            { title: "Trabajo en Equipo", levels: [
-                              "Todos los miembros contribuyeron activamente.",
-                              "La mayoría participó activamente.",
-                              "Algunos miembros contribuyeron, otros participaron poco.",
-                              "Solo algunos miembros trabajaron activamente.",
-                              "Poca o nula participación del equipo.",
-                              "No hubo trabajo en equipo."
-                            ]},
-                            { title: "Uso del Inglés", levels: [
-                              "Uso correcto del vocabulario y gramática con mínima o ninguna corrección.",
-                              "Uso adecuado del inglés con algunos errores menores.",
-                              "Errores frecuentes en vocabulario y gramática.",
-                              "Errores que afectan la comprensión del mensaje.",
-                              "Uso muy limitado del inglés, difícil de comprender.",
-                              "No se logró usar inglés de forma comprensible."
-                            ]}
-                          ].map((category) => (
-                            <div key={category.title} className="bg-white/5 p-4 rounded-lg">
-                              <h6 className="font-semibold mb-3">{category.title}</h6>
-                              <div className="space-y-2">
-                                {category.levels.map((level, index) => (
-                                  <div key={index} className="flex items-start space-x-2">
-                                    <span className="font-bold">{6 - index}</span>
-                                    <p className="text-sm text-white/90">{level}</p>
-                                  </div>
-                                ))}
-                              </div>
-                            </div>
-                          ))}
+                        <div className="bg-white/5 p-4 rounded-lg">
+                          <h5 className="font-semibold mb-2">Días de la Semana</h5>
+                          <p className="text-white/80">Evaluación del reconocimiento y uso de los días de la semana en inglés</p>
                         </div>
-                      </div>
-
-                      {/* Final Average */}
-                      <div className="bg-white/5 p-6 rounded-lg">
-                        <h5 className="text-lg font-semibold mb-4">6. Promedio Final Diagnóstico</h5>
-                        <p className="text-white/90">
-                          Cada categoría tiene un peso igual en la evaluación final. Se obtiene el promedio de las cinco áreas evaluadas para asignar una calificación final en la escala del 1 al 6.
-                        </p>
                       </div>
                     </div>
                   </div>
                 </div>
-              )}
+              ) : activeModal === 'proyecto' ? (
+                <div className="bg-white/10 p-6 rounded-lg max-w-4xl mx-auto">
+                  <h3 className="text-xl font-semibold mb-4">Proyecto Módulo Introductorio</h3>
+                  <div className="space-y-4">
+                    <p className="text-white/80">El Módulo Introductorio diagnostica las habilidades y competencias de los estudiantes al inicio del curso, orientando la planificación y acompañamientos pedagógicos. Evalúa comunicación, pensamiento lógico, resolución de problemas, trabajo en equipo y autonomía, mediante actividades interdisciplinarias registradas en el portafolio docente sin calificación numérica, solo con juicios conceptuales.</p>
+                    <div className="mt-6">
+                      <h4 className="text-lg font-semibold mb-2">Propuesta para 2ndo EMS:</h4>
+                      <p className="text-white/80">Refuerza el aprendizaje del alfabeto, nombres y datos personales en inglés. Los estudiantes organizan nombres según criterios específicos y presentan resultados en Canva. Investigan el nombre Guyunusa mediante juegos interactivos y crean una mascota escolar con IA, evaluando historia, geografía, lengua, características y debilidades, finalizando con una votación.</p>
+                    </div>
+                  </div>
+                </div>
+              ) : null}
             </div>
           </div>
         </div>
